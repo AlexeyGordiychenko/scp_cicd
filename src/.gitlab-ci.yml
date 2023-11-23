@@ -1,6 +1,7 @@
 stages:
   - build
   - codestyle
+  - test
 
 # BUILD STAGES
 build_cat:
@@ -29,4 +30,21 @@ codestyle:
   script:
     - cd C2_SimpleBashUtils
     - clang-format -n --style=Google **/*.{c,h}
+  allow_failure: false
+
+# TEST STAGES
+test_cat:
+  stage: test
+  script:
+    - bash C2_SimpleBashUtils/cat/tests.sh
+  dependencies:
+    - codestyle_check
+  allow_failure: false
+
+test_grep:
+  stage: test
+  script:
+    - bash C2_SimpleBashUtils/grep/tests.sh
+  dependencies:
+    - codestyle_check
   allow_failure: false

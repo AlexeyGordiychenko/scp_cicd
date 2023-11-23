@@ -11,7 +11,7 @@ build_cat:
     - make
   artifacts:
     paths:
-      - src/C2_SimpleBashUtils/cat/*
+      - src/C2_SimpleBashUtils/cat/s21_cat
     expire_in: 30 days
 
 build_grep:
@@ -21,7 +21,7 @@ build_grep:
     - make
   artifacts:
     paths:
-      - src/C2_SimpleBashUtils/grep/*
+      - src/C2_SimpleBashUtils/grep/s21_grep
     expire_in: 30 days
 
 # CODESTYLE STAGE
@@ -39,6 +39,7 @@ test_cat:
     - ls
     - bash tests.sh
   dependencies:
+    - build_cat
     - codestyle
   allow_failure: false
 
@@ -49,5 +50,6 @@ test_grep:
     - ls
     - bash tests.sh
   dependencies:
+    - build_grep
     - codestyle
   allow_failure: false

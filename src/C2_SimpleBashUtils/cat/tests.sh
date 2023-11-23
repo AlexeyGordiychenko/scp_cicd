@@ -10,7 +10,7 @@ else
 fi
 
 s21_command=(
-    "./s21_cat1"
+    "./s21_cat"
 )
 sys_command=(
     "cat"

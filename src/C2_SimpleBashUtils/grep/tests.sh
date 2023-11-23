@@ -9,7 +9,7 @@ else
 fi
 
 s21_command=(
-    "./s21_grep1"
+    "./s21_grep"
 )
 sys_command=(
     "grep"

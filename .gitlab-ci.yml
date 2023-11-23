@@ -28,8 +28,7 @@ build_grep:
 codestyle:
   stage: codestyle
   script:
-    - cd src/C2_SimpleBashUtils
-    - shopt -s globstar && clang-format -n --style=Google src/**/*.{c,h}
+    - clang-format -n --style=Google src/C2_SimpleBashUtils/**/*.{c,h}
   allow_failure: false
 
 # TEST STAGES

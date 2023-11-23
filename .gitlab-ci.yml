@@ -38,7 +38,7 @@ test_cat:
   script:
     - bash C2_SimpleBashUtils/cat/tests.sh
   dependencies:
-    - codestyle_check
+    - codestyle
   allow_failure: false
 
 test_grep:
@@ -46,5 +46,5 @@ test_grep:
   script:
     - bash C2_SimpleBashUtils/grep/tests.sh
   dependencies:
-    - codestyle_check
+    - codestyle
   allow_failure: false

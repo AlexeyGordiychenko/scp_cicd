@@ -29,7 +29,7 @@ codestyle:
   stage: codestyle
   script:
     - cd src/C2_SimpleBashUtils
-    - clang-format -n --style=Google src/**/*.{c,h}
+    - shopt -s globstar && clang-format -n --style=Google src/**/*.{c,h}
   allow_failure: false
 
 # TEST STAGES

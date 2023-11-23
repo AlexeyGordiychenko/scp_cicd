@@ -81,7 +81,7 @@ run_test() {
             "${s21_command[@]}" ${param} 2>/dev/null
             echo ${PIPESTATUS[0]}
         ) <(
-            "${sys_command[@]}" ${param} 2>/dev/null
+            "${sys_command[@]}" --color=never ${param} 2>/dev/null
             echo ${PIPESTATUS[0]}
         )
     fi

@@ -7,36 +7,36 @@ stages:
 build_cat:
   stage: build
   script:
-    - cd C2_SimpleBashUtils/cat
+    - cd src/C2_SimpleBashUtils/cat
     - make
   artifacts:
     paths:
-      - artifacts/cat/*
+      - src/artifacts/cat/*
     expire_in: 30 days
 
 build_grep:
   stage: build
   script:
-    - cd C2_SimpleBashUtils/grep
+    - cd src/C2_SimpleBashUtils/grep
     - make
   artifacts:
     paths:
-      - artifacts/grep/*
+      - src/artifacts/grep/*
     expire_in: 30 days
 
 # CODESTYLE STAGE
 codestyle:
   stage: codestyle
   script:
-    - cd C2_SimpleBashUtils
-    - clang-format -n --style=Google **/*.{c,h}
+    - cd src/C2_SimpleBashUtils
+    - clang-format -n --style=Google src/**/*.{c,h}
   allow_failure: false
 
 # TEST STAGES
 test_cat:
   stage: test
   script:
-    - bash C2_SimpleBashUtils/cat/tests.sh
+    - bash src/C2_SimpleBashUtils/cat/tests.sh
   dependencies:
     - codestyle
   allow_failure: false
@@ -44,7 +44,7 @@ test_cat:
 test_grep:
   stage: test
   script:
-    - bash C2_SimpleBashUtils/grep/tests.sh
+    - bash src/C2_SimpleBashUtils/grep/tests.sh
   dependencies:
     - codestyle
   allow_failure: false

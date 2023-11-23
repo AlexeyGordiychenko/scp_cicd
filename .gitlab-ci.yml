@@ -28,7 +28,7 @@ build_grep:
 codestyle:
   stage: codestyle
   script:
-    - clang-format -n --style=Google src/C2_SimpleBashUtils/**/*.{c,h}
+    - clang-format -n --Werror --style=Google src/C2_SimpleBashUtils/**/*.{c,h}
   allow_failure: false
 
 # TEST STAGES

@@ -1,0 +1,23 @@
+stages:
+  - build
+
+# BUILD STAGES
+build_cat:
+  stage: build
+  script:
+    - cd C2_SimpleBashUtils/cat
+    - make
+  artifacts:
+    paths:
+      - artifacts/cat/*
+    expire_in: 30 days
+
+build_grep:
+  stage: build
+  script:
+    - cd C2_SimpleBashUtils/grep
+    - make
+  artifacts:
+    paths:
+      - artifacts/grep/*
+    expire_in: 30 days

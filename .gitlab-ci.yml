@@ -36,6 +36,7 @@ test_cat:
   stage: test
   script:
     - cd src/C2_SimpleBashUtils/cat
+    - ls
     - bash tests.sh
   dependencies:
     - codestyle
@@ -45,6 +46,7 @@ test_grep:
   stage: test
   script:
     - cd src/C2_SimpleBashUtils/grep
+    - ls
     - bash tests.sh
   dependencies:
     - codestyle

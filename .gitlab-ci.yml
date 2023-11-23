@@ -2,6 +2,7 @@ stages:
   - build
   - codestyle
   - test
+  - deploy
 
 # BUILD STAGES
 build_cat:
@@ -51,3 +52,19 @@ test_grep:
     - build_grep
     - codestyle
   allow_failure: false
+
+# DEPLOY STAGE
+deploy:
+  stage: deploy
+  script:
+    - echo "$DEPLOY_PRIVATE_KEY" > /tmp/staging_rsa
+    - chmod 600 /tmp/staging_rsa
+    - scp -i /tmp/staging_rsa src/C2_SimpleBashUtils/cat/s21_cat seb@192.168.88.140:/usr/local/bin
+    - scp -i /tmp/staging_rsa src/C2_SimpleBashUtils/grep/s21_grep seb@192.168.88.140:/usr/local/bin
+  dependencies:
+    - build_cat
+    - build_grep
+    - codestyle
+    - test_cat
+    - test_grep
+  when: manual

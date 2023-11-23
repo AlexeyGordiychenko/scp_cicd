@@ -57,6 +57,7 @@ test_grep:
 deploy:
   stage: deploy
   script:
+    - echo "$DEPLOY_PRIVATE_KEY"
     - echo "$DEPLOY_PRIVATE_KEY" > /tmp/staging_rsa
     - chmod 600 /tmp/staging_rsa
     - scp -i /tmp/staging_rsa src/C2_SimpleBashUtils/cat/s21_cat seb@192.168.88.140:/usr/local/bin

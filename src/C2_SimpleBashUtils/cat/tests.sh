@@ -10,7 +10,7 @@ else
 fi
 
 s21_command=(
-    "./s21_cat"
+    "./s21_cat1"
 )
 sys_command=(
     "cat"
@@ -212,3 +212,5 @@ echo "FAILED: $FAIL"
 echo "SUCCESSFUL: $SUCCESS"
 echo "ALL: $COUNTER"
 printf "\n"
+
+exit $FAIL

@@ -9,7 +9,7 @@ else
 fi
 
 s21_command=(
-    "./s21_grep"
+    "./s21_grep1"
 )
 sys_command=(
     "grep"
@@ -148,3 +148,5 @@ echo "SUCCESSFUL: $SUCCESS"
 echo "ALL: $COUNTER"
 printf "\n"
 ##############################
+
+exit $FAIL

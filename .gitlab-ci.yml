@@ -11,7 +11,7 @@ build_cat:
     - make
   artifacts:
     paths:
-      - src/artifacts/cat/*
+      - src/artifacts/*
     expire_in: 30 days
 
 build_grep:
@@ -21,7 +21,7 @@ build_grep:
     - make
   artifacts:
     paths:
-      - src/artifacts/grep/*
+      - src/artifacts/*
     expire_in: 30 days
 
 # CODESTYLE STAGE

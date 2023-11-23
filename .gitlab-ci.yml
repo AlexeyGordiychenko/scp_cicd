@@ -65,5 +65,5 @@ deploy:
     - codestyle
     - test_cat
     - test_grep
-  when: manual
+  # when: manual
   allow_failure: false

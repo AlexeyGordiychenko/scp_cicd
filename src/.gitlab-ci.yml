@@ -1,5 +1,6 @@
 stages:
   - build
+  - codestyle
 
 # BUILD STAGES
 build_cat:
@@ -21,3 +22,11 @@ build_grep:
     paths:
       - artifacts/grep/*
     expire_in: 30 days
+
+# CODESTYLE STAGE
+codestyle:
+  stage: codestyle
+  script:
+    - cd C2_SimpleBashUtils
+    - clang-format -n --style=Google **/*.{c,h}
+  allow_failure: false

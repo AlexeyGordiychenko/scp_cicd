@@ -1,7 +1,6 @@
 #include "s21_cat.h"
 
-int main(int argc, char *argv[]) {
-  Flags flags = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+int main(int argc, char *argv[]) {  Flags flags = {0, 0, 0, 0, 0, 0, 0, 0, 0};
   parse_flags(argc, argv, &flags);
   if (!flags.err_fl) {
     if (flags.hflag) {

@@ -36,6 +36,8 @@ codestyle:
     - clang-format -n --Werror --style=Google src/C2_SimpleBashUtils/**/*.{c,h}
   after_script:
     - bash src/telegram.sh
+  rules:
+    - when: always
 
 # TEST STAGES
 test_cat:

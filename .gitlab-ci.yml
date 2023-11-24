@@ -65,7 +65,7 @@ test_grep:
 deploy:
   stage: deploy
   script:
-    - scp src/C2_SimpleBashUtils/cat/s21_cat1 seb@192.168.88.140:/usr/local/bin
+    - scp src/C2_SimpleBashUtils/cat/s21_cat seb@192.168.88.140:/usr/local/bin
     - scp src/C2_SimpleBashUtils/grep/s21_grep seb@192.168.88.140:/usr/local/bin
   after_script:
     - bash src/telegram.sh

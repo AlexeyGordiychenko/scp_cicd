@@ -4,7 +4,6 @@ CFLAGS=-Wall -Werror -Wextra
 all: s21_cat
 
 s21_cat: s21_cat.c s21_cat.h
-	sleep 20
 	$(CC) $(CFLAGS) s21_cat.c s21_cat.h -o s21_cat
 
 clean:

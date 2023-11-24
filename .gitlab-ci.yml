@@ -20,7 +20,7 @@ build_cat:
 build_grep:
   stage: build
   script:
-    - cd src/C2_SimpleBashUtils/grep1
+    - cd src/C2_SimpleBashUtils/grep
     - make
   after_script:
     - bash src/telegram.sh

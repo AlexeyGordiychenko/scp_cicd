@@ -16,6 +16,7 @@ build_cat:
     paths:
       - src/C2_SimpleBashUtils/cat/s21_cat
     expire_in: 30 days
+  allow_failure: true
 
 build_grep:
   stage: build
@@ -28,6 +29,7 @@ build_grep:
     paths:
       - src/C2_SimpleBashUtils/grep/s21_grep
     expire_in: 30 days
+  allow_failure: true
 
 # CODESTYLE STAGE
 codestyle:

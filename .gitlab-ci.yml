@@ -48,9 +48,9 @@ test_cat:
     - bash tests.sh
   after_script:
     - bash src/telegram.sh
-  dependencies:
-    - build_cat
-    - codestyle
+  needs:
+    - job: build_cat
+    - job: codestyle
   allow_failure: false
 
 test_grep:
@@ -60,9 +60,9 @@ test_grep:
     - bash tests.sh
   after_script:
     - bash src/telegram.sh
-  dependencies:
-    - build_grep
-    - codestyle
+  needs:
+    - job: build_grep
+    - job: codestyle
   allow_failure: false
 
 # DEPLOY STAGE
@@ -73,11 +73,11 @@ deploy:
     - scp src/C2_SimpleBashUtils/grep/s21_grep seb@192.168.88.140:/usr/local/bin
   after_script:
     - bash src/telegram.sh
-  dependencies:
-    - build_cat
-    - build_grep
-    - codestyle
-    - test_cat
-    - test_grep
+  needs:
+    - job: build_cat
+    - job: build_grep
+    - job: codestyle
+    - job: test_cat
+    - job: test_grep
   when: manual
   allow_failure: false

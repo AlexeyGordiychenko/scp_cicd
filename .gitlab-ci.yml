@@ -16,12 +16,11 @@ build_cat:
     paths:
       - src/C2_SimpleBashUtils/cat/s21_cat
     expire_in: 30 days
-  allow_failure: true
 
 build_grep:
   stage: build
   script:
-    - cd src/C2_SimpleBashUtils/grep
+    - cd src/C2_SimpleBashUtils/grep1
     - make
   after_script:
     - bash src/telegram.sh
@@ -29,7 +28,6 @@ build_grep:
     paths:
       - src/C2_SimpleBashUtils/grep/s21_grep
     expire_in: 30 days
-  allow_failure: true
 
 # CODESTYLE STAGE
 codestyle:
@@ -38,7 +36,6 @@ codestyle:
     - clang-format -n --Werror --style=Google src/C2_SimpleBashUtils/**/*.{c,h}
   after_script:
     - bash src/telegram.sh
-  allow_failure: false
 
 # TEST STAGES
 test_cat:
@@ -48,10 +45,8 @@ test_cat:
     - bash tests.sh
   after_script:
     - bash src/telegram.sh
-  needs:
-    - job: build_cat
-    - job: codestyle
-  allow_failure: false
+  dependencies:
+    - build_cat
 
 test_grep:
   stage: test
@@ -60,10 +55,8 @@ test_grep:
     - bash tests.sh
   after_script:
     - bash src/telegram.sh
-  needs:
-    - job: build_grep
-    - job: codestyle
-  allow_failure: false
+  dependencies:
+    - build_grep
 
 # DEPLOY STAGE
 deploy:
@@ -73,11 +66,11 @@ deploy:
     - scp src/C2_SimpleBashUtils/grep/s21_grep seb@192.168.88.140:/usr/local/bin
   after_script:
     - bash src/telegram.sh
-  needs:
-    - job: build_cat
-    - job: build_grep
-    - job: codestyle
-    - job: test_cat
-    - job: test_grep
+  dependencies:
+    - build_cat
+    - build_grep
+    - codestyle
+    - test_cat
+    - test_grep
   when: manual
   allow_failure: false

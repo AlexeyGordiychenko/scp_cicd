@@ -50,7 +50,7 @@ test_cat:
   dependencies:
     - build_cat
   needs:
-    - build_cat
+    - job: build_cat
 
 test_grep:
   stage: test
@@ -62,7 +62,7 @@ test_grep:
   dependencies:
     - build_grep
   needs:
-    - buiild_grep
+    - job: build_grep
 # DEPLOY STAGE
 deploy:
   stage: deploy

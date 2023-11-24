@@ -12,7 +12,6 @@ else
 fi
 
 URL="https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"
-# TEXT="$CI_JOB_NAME status: $CI_JOB_STATUS%0A%0AProject:+$CI_PROJECT_NAME%0AURL:+$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID/%0ABranch:+$CI_COMMIT_REF_SLUG"
-TEXT="$BELL_EMOJI *Job*: $CI_JOB_NAME $STATUS%0A%0A$TASK_EMOJI *Project*:+$CI_PROJECT_NAME%0A$LINK_EMOJI *URL*:+$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID/%0A$BRANCH_EMOJI *Branch*:+$CI_COMMIT_REF_SLUG"
+TEXT="$BELL_EMOJI Job: $CI_JOB_NAME $STATUS%0A%0A$TASK_EMOJI Project:+$CI_PROJECT_NAME%0A$LINK_EMOJI URL:+$CI_PROJECT_URL/pipelines/$CI_PIPELINE_ID/%0A$BRANCH_EMOJI Branch:+$CI_COMMIT_REF_SLUG"
 
-curl -s --max-time $TIME -d "chat_id=$TELEGRAM_USER_ID&disable_web_page_preview=1&parse_mode=markdown&text=$TEXT" $URL > /dev/null
+curl -s --max-time $TIME -d "chat_id=$TELEGRAM_USER_ID&disable_web_page_preview=1&text=$TEXT" $URL > /dev/null

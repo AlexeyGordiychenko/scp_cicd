@@ -49,8 +49,6 @@ test_cat:
     - bash src/telegram.sh
   dependencies:
     - build_cat
-  needs:
-    - job: build_cat
 
 test_grep:
   stage: test
@@ -61,8 +59,7 @@ test_grep:
     - bash src/telegram.sh
   dependencies:
     - build_grep
-  needs:
-    - job: build_grep
+
 # DEPLOY STAGE
 deploy:
   stage: deploy

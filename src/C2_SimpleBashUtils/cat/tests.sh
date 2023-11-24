@@ -1,4 +1,5 @@
 #!/bin/bash
+sleep 20
 
 SUCCESS=0
 FAIL=0

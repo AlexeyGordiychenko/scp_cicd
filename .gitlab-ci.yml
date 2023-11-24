@@ -8,7 +8,7 @@ stages:
 build_cat:
   stage: build
   script:
-    - cd src/C2_SimpleBashUtils/cat1
+    - cd src/C2_SimpleBashUtils/cat
     - make
   after_script:
     - bash src/telegram.sh
@@ -20,7 +20,7 @@ build_cat:
 build_grep:
   stage: build
   script:
-    - cd src/C2_SimpleBashUtils/grep
+    - cd src/C2_SimpleBashUtils/grep1
     - make
   after_script:
     - bash src/telegram.sh

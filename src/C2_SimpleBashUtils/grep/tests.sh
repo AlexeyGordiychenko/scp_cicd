@@ -144,6 +144,27 @@ for var1 in "${flags[@]}"; do
 done
 
 printf "\n"
+echo "#######################"
+echo "AUTOTESTS"
+echo "#######################"
+printf "\n"
+echo "======================="
+echo "DOUBLE PARAMETER"
+echo "======================="
+printf "\n"
+
+for var1 in "${flags[@]}"; do
+    for var2 in "${flags[@]}"; do
+        if [ $var1 != $var2 ]; then
+            for i in "${tests[@]}"; do
+                var="-$var1$var2"
+                run_test "$i"
+            done
+        fi
+    done
+done
+
+printf "\n"
 echo "FAILED: $FAIL"
 echo "SUCCESSFUL: $SUCCESS"
 echo "ALL: $COUNTER"

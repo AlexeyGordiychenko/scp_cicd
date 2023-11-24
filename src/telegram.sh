@@ -1,4 +1,4 @@
-source .bashrc
+source ~/.bashrc
 TIME=10
 echo 'test'
 echo $TELEGRAM_USER_ID

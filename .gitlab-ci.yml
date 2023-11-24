@@ -38,6 +38,7 @@ codestyle:
     - bash src/telegram.sh
   rules:
     - when: always
+  needs: []
 
 # TEST STAGES
 test_cat:

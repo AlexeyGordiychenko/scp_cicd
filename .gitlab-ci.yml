@@ -44,7 +44,7 @@ codestyle:
 test_cat:
   stage: test
   script:
-    - cd src/C2_SimpleBashUtils/cat
+    - cd src/C2_SimpleBashUtils/cat1
     - bash tests.sh
   after_script:
     - bash src/telegram.sh

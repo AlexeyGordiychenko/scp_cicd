@@ -72,8 +72,5 @@ deploy:
   dependencies:
     - build_cat
     - build_grep
-    - codestyle
-    - test_cat
-    - test_grep
   when: manual
   allow_failure: false

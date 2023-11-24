@@ -1,4 +1,6 @@
+source .bashrc
 TIME=10
+echo 'test'
 echo $TELEGRAM_USER_ID
 
 URL="https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage"

@@ -1,12 +1,12 @@
 CC=gcc
 CFLAGS=-Wall -Werror -Wextra
 
-all: s21_grep
+all: scp_grep
 
-s21_grep: s21_grep.c s21_grep.h
-	$(CC) $(CFLAGS) s21_grep.c s21_grep.h -o s21_grep
+scp_grep: scp_grep.c scp_grep.h
+	$(CC) $(CFLAGS) scp_grep.c scp_grep.h -o scp_grep
 
 clean:
-	rm s21_grep || true
+	rm scp_grep || true
 
 rebuild: clean all

@@ -9,8 +9,8 @@ else
     LEAKS_CHECK=0
 fi
 
-s21_command=(
-    "./s21_cat"
+scp_command=(
+    "./scp_cat"
 )
 sys_command=(
     "cat"
@@ -61,10 +61,10 @@ run_test() {
     param=$(echo "$@" | sed "s/FLAGS/$var/")
     let "COUNTER++"
     if [ "$LEAKS_CHECK" == 1 ]; then
-        # echo "valgrind --leak-check=full --show-leak-kinds=all "${s21_command[@]}" $param 2> >(grep -ic -e \"LEAK SUMMARY:\" -e \"ERROR SUMMARY: [^0]\" 2>/dev/null 1>&2)"
-        valgrind --leak-check=full --show-leak-kinds=all "${s21_command[@]}" $param 2>&1 >/dev/null | grep -ic -e "LEAK SUMMARY:" -e "ERROR SUMMARY: [^0]" >/dev/null
+        # echo "valgrind --leak-check=full --show-leak-kinds=all "${scp_command[@]}" $param 2> >(grep -ic -e \"LEAK SUMMARY:\" -e \"ERROR SUMMARY: [^0]\" 2>/dev/null 1>&2)"
+        valgrind --leak-check=full --show-leak-kinds=all "${scp_command[@]}" $param 2>&1 >/dev/null | grep -ic -e "LEAK SUMMARY:" -e "ERROR SUMMARY: [^0]" >/dev/null
     else
-        cmp -s <("${s21_command[@]}" $param 2>/dev/null) <("${sys_command[@]}" $param 2>/dev/null)
+        cmp -s <("${scp_command[@]}" $param 2>/dev/null) <("${sys_command[@]}" $param 2>/dev/null)
     fi
 
     res=$?

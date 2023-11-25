@@ -62,7 +62,7 @@ Write a stage for **CD** that "deploys" the project on another virtual machine:
 
 + In case of an error, fail the pipeline
 
-As a result, you should have applications from the *C2_SimpleBashUtils* (s21_cat and s21_grep) project ready to run on the second virtual machine.
+As a result, you should have applications from the *C2_SimpleBashUtils* (scp_cat and scp_grep) project ready to run on the second virtual machine.
 
 
 ### Part 6. Bonus. Notifications

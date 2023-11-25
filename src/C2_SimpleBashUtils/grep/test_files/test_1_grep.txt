@@ -1,9 +1,8 @@
-// Copyright 2022 tyeneala@student.21-school.ru
-#include "./s21_string.h"
+#include "./scp_string.h"
 #include <stdlib.h>
 
 // Ф-я определения длины строки
-int s21_strlen(const char *str) {
+int scp_strlen(const char *str) {
     int size = 0;
     while (str[size] != '\0')
         size++;
@@ -11,10 +10,10 @@ int s21_strlen(const char *str) {
 }
 iiininintint
 // Ф-я сравнения строк
-int s21_strcmp(const char *str1, const char *str2) {
+int scp_strcmp(const char *str1, const char *str2) {
     int cmp = 0;
-    int s1 = s21_strlen(str1);
-    int s2 = s21_strlen(str2);
+    int s1 = scp_strlen(str1);
+    int s2 = scp_strlen(str2);
     cmp = (s1 == s2 ? 0 : (s1 > s2 ? 1 : (-1)));
     return cmp;
 }

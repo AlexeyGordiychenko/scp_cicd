@@ -1,7 +1,7 @@
 // Ф-я добавляет str2 в конец str1 (конкатенация)
-char *s21_strcat(char *str1, const char *str2) {
-    int s1 = s21_strlen(str1);
-    int s2 = s21_strlen(str2);
+char *scp_strcat(char *str1, const char *str2) {
+    int s1 = scp_strlen(str1);
+    int s2 = scp_strlen(str2);
     char *new_str = calloc((s1 + s2), sizeof(char));
     int i;
     for (i = 0; i < s1; i++)

@@ -14,7 +14,7 @@ build_cat:
     - bash src/telegram.sh
   artifacts:
     paths:
-      - src/C2_SimpleBashUtils/cat/s21_cat
+      - src/C2_SimpleBashUtils/cat/scp_cat
     expire_in: 30 days
 
 build_grep:
@@ -26,7 +26,7 @@ build_grep:
     - bash src/telegram.sh
   artifacts:
     paths:
-      - src/C2_SimpleBashUtils/grep/s21_grep
+      - src/C2_SimpleBashUtils/grep/scp_grep
     expire_in: 30 days
 
 # CODESTYLE STAGE
@@ -65,8 +65,8 @@ test_grep:
 deploy:
   stage: deploy
   script:
-    - scp src/C2_SimpleBashUtils/cat/s21_cat seb@192.168.88.140:/usr/local/bin
-    - scp src/C2_SimpleBashUtils/grep/s21_grep seb@192.168.88.140:/usr/local/bin
+    - scp src/C2_SimpleBashUtils/cat/scp_cat seb@192.168.88.140:/usr/local/bin
+    - scp src/C2_SimpleBashUtils/grep/scp_grep seb@192.168.88.140:/usr/local/bin
   after_script:
     - bash src/telegram.sh
   dependencies:

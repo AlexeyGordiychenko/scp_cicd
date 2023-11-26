@@ -2,6 +2,11 @@
 
 Development of a simple **CI/CD** for the *SimpleBashUtils* project. Building, testing, deployment.
 
+
+## Score:
+The final score is 134% (max)
+
+
 ## Task
 
 
